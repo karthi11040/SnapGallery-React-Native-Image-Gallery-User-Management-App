@@ -114,6 +114,35 @@ Ensure you have Node.js (v18+) and npm/yarn installed on your machine.
 
 ---
 
+## 📦 Building Android APK (.apk)
+
+To compile and build an standalone Android APK binary locally:
+
+### Option A: Local Gradle Build (Recommended)
+```bash
+# Navigate to android folder
+cd android
+
+# Build Debug APK (Windows PowerShell / CMD)
+.\gradlew.bat assembleDebug
+
+# Build Debug APK (macOS / Linux / Bash)
+./gradlew assembleDebug
+
+# Build Production Release APK
+.\gradlew.bat assembleRelease
+```
+📌 **Output Location**:
+- **Debug APK**: `android/app/build/outputs/apk/debug/app-debug.apk`
+- **Release APK**: `android/app/build/outputs/apk/release/app-release.apk`
+
+### Option B: Expo Cloud Build (EAS)
+```bash
+npx eas-cli build --platform android --profile preview
+```
+
+---
+
 ## 🧪 Testing & Quality Assurance
 
 SnapGallery includes unit and integration tests covering state stores, validation rules, search filters, and application rendering.
