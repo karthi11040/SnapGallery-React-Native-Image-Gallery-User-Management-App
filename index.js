@@ -1,9 +1,11 @@
-/**
- * @format
- */
+import { Platform } from 'react-native';
 
-import { AppRegistry } from 'react-native';
+if (typeof process !== 'undefined' && process.env && !process.env.EXPO_OS) {
+  process.env.EXPO_OS = Platform.OS;
+}
+
+import { registerRootComponent } from 'expo';
 import App from './App';
-import { name as appName } from './app.json';
 
-AppRegistry.registerComponent(appName, () => App);
+registerRootComponent(App);
+

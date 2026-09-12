@@ -1,97 +1,149 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📸 SnapGallery — React Native Image Gallery & User Management App
 
-# Getting Started
+[![React Native](https://img.shields.io/badge/React_Native-v0.79.0-61DAFB?logo=react&logoColor=black)](https://reactnative.dev)
+[![Expo](https://img.shields.io/badge/Expo-SDK_57-000000?logo=expo&logoColor=white)](https://expo.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-v5.8.2-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Jest Pass Rate](https://img.shields.io/badge/Tests-38%2F38_Passed-44CC11?logo=jest&logoColor=white)](#-testing--quality-assurance)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+A premium, modern cross-platform React Native mobile application built with Expo SDK 57, TypeScript, and state-of-the-art glassmorphic UI aesthetics. **SnapGallery** provides high-resolution photo discovery, dynamic search, category recommendations, persistent user authentication, offline downloads management, favorites curation, and full profile editing with custom avatar pickers.
 
-## Step 1: Start Metro
+---
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## ✨ Features & Capabilities
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 🔑 1. User Authentication & Guest Mode
+- **Secure Login & Registration**: Input validation with real-time feedback and persistent credential storage (`@snapgallery/auth_user`).
+- **Temporary Guest Mode**: Single-tap **Demo Guest** login with full access to gallery browsing and bookmarking.
+- **Session Auto-Restoration**: Automatically restores authenticated sessions on app restart using `AsyncStorage`.
 
-```sh
-# Using npm
-npm start
+### 🎨 2. Modern Glassmorphic UI & Dynamic Theme System
+- **Theme Modes**: Supports **Light**, **Dark**, and **System Default** theme preferences.
+- **Glassmorphism Styling**: Sleek translucent cards, custom gradient overlays, vibrant accent colors, and smooth micro-interactions.
+- **Dynamic Layout Adaptability**: Automatically fits varying device screen widths with fluid font scaling (`adjustsFontSizeToFit`) to eliminate text clipping or awkward line wraps.
 
-# OR using Yarn
-yarn start
+### 🔍 3. Real-Time Gallery Search & Category Filtering
+- **Multi-Field Search**: Real-time filtering across photo titles, categories, author names, tags, and IDs.
+- **Category Pills & Recommendation Cards**: One-tap category switching (*All*, *Nature*, *Cities*, *People*, *Architecture*) paired with high-contrast visual recommendation cards.
+- **Hero Carousel Banner**: Dynamic feature carousel highlighting top creators and photography feeds.
+
+### 📥 4. Offline Downloads & Favorites Management
+- **Dedicated Downloads Tab**: Track downloaded high-resolution images offline with full file details, single-item deletion, and clear-all utilities (`@snapgallery/downloads`).
+- **Favorites Collection**: Quick heart toggle on any image to save items locally in your personal favorites library (`@snapgallery/favorites`).
+- **Interactive Details View**: High-resolution image viewer with metadata display (author, dimensions, category tags) and download triggers.
+
+### 📸 5. Interactive Profile & Custom Avatar Editor
+- **Dynamic Profile Header**: Custom handle (`@username`), user bio, status stats (*Photos Viewed*, *Favorites*, *Downloads*), and quick navigation actions.
+- **Profile Photo Editor**: Change your profile picture anytime via:
+  - 📷 **Device Camera**: Capture instant profile photos using native camera integration.
+  - 🖼️ **Photo Library**: Select existing photos directly from your device gallery.
+  - 🌟 **Curated Avatar Presets**: Pick from 6 high-resolution curated avatar options.
+- **Personal Details Form**: View and edit full name, email, mobile number, city, bio, and avatar seamlessly.
+
+---
+
+## 🛠️ Tech Stack & Libraries
+
+- **Core**: [React Native 0.79](https://reactnative.dev) + [Expo SDK 57](https://expo.dev)
+- **Language**: [TypeScript](https://www.typescriptlang.org) (Strict mode enabled)
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Navigation**: [React Navigation v7](https://reactnavigation.org) (Bottom Tabs + Native Stack)
+- **Media & Native Modules**: `expo-image-picker`, `expo-file-system`, `expo-media-library`, `@react-native-async-storage/async-storage`
+- **Testing**: [Jest](https://jestjs.io) + `react-test-renderer`
+
+---
+
+## 📁 Project Directory Structure
+
+```text
+SnapGallery/
+├── src/
+│   ├── components/         # Reusable UI components (Icons, Buttons, Cards)
+│   ├── hooks/              # Custom React hooks (useAuth, useFavorites, useTheme)
+│   ├── navigation/         # React Navigation setup (AppNavigator, RootNavigator)
+│   ├── screens/            # Screen components
+│   │   ├── auth/           # LoginScreen, RegisterScreen
+│   │   ├── HomeScreen.tsx           # Gallery feed & search
+│   │   ├── ImageDetailsScreen.tsx   # Photo viewer & metadata
+│   │   ├── FavoritesScreen.tsx      # Saved favorites
+│   │   ├── DownloadsScreen.tsx      # Offline downloads manager
+│   │   └── ProfileScreen.tsx        # Profile & Avatar editor
+│   ├── store/              # Zustand global state stores (authStore, downloadStore, themeStore)
+│   ├── types/              # TypeScript type definitions (auth, image, theme)
+│   └── utils/              # Helper utilities (filters, storage, validation)
+├── __tests__/              # Unit and integration test suites
+├── assets/                 # App icons, splash screens, and images
+├── App.tsx                 # Root application wrapper & providers
+└── package.json            # Project dependencies & scripts
 ```
 
-## Step 2: Build and run your app
+---
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+## 🚀 Getting Started
 
-### Android
+### Prerequisites
 
-```sh
-# Using npm
-npm run android
+Ensure you have Node.js (v18+) and npm/yarn installed on your machine.
 
-# OR using Yarn
-yarn android
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/karthi11040/SnapGallery-React-Native-Image-Gallery-User-Management-App.git
+   cd SnapGallery-React-Native-Image-Gallery-User-Management-App
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start the Metro Bundler**:
+   ```bash
+   npm start
+   ```
+
+4. **Run on iOS / Android**:
+   ```bash
+   # Run on Android Emulator / Connected Device
+   npm run android
+
+   # Run on iOS Simulator (macOS only)
+   npm run ios
+   ```
+
+---
+
+## 🧪 Testing & Quality Assurance
+
+SnapGallery includes unit and integration tests covering state stores, validation rules, search filters, and application rendering.
+
+- **Run Unit Tests**:
+  ```bash
+  npm test
+  ```
+
+- **Run TypeScript Type Check**:
+  ```bash
+  npm run typecheck
+  ```
+
+### Test Results Summary
+```text
+PASS __tests__/authStore.test.ts
+PASS __tests__/galleryFilters.test.ts
+PASS __tests__/imageStore.test.ts
+PASS __tests__/validation.test.ts
+PASS __tests__/App.test.tsx
+
+Test Suites: 5 passed, 5 total
+Tests:       38 passed, 38 total
+Snapshots:   0 total
+Time:        4.779 s
 ```
 
-### iOS
+---
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## 📄 License
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+This project is open source and available under the [MIT License](LICENSE).

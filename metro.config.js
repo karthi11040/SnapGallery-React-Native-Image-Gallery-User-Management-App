@@ -1,11 +1,19 @@
-const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const { getDefaultConfig } = require('expo/metro-config');
 
-/**
- * Metro configuration
- * https://reactnative.dev/docs/metro
- *
- * @type {import('@react-native/metro-config').MetroConfig}
- */
-const config = {};
+const config = getDefaultConfig(__dirname);
 
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+// Configure polyfill resolution for RN 0.87+ compatibility
+config.serializer.getPolyfills = ({ platform }) => {
+  if (!platform) return [];
+  try {
+    return require('react-native/rn-get-polyfills')();
+  } catch (e) {
+    try {
+      return require('@react-native/js-polyfills')();
+    } catch (err) {
+      return [];
+    }
+  }
+};
+
+module.exports = config;
