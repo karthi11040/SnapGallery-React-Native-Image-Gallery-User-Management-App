@@ -5,6 +5,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-v5.8.2-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Jest Pass Rate](https://img.shields.io/badge/Tests-38%2F38_Passed-44CC11?logo=jest&logoColor=white)](#-testing--quality-assurance)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Download APK](https://img.shields.io/badge/Download_APK-v1.0.0-3DDC84?logo=android&logoColor=white)](https://github.com/karthi11040/SnapGallery-React-Native-Image-Gallery-User-Management-App/releases/tag/v1.0.0)
 
 A premium, modern cross-platform React Native mobile application built with Expo SDK 57, TypeScript, and state-of-the-art glassmorphic UI aesthetics. **SnapGallery** provides high-resolution photo discovery, dynamic search, category recommendations, persistent user authentication, offline downloads management, favorites curation, and full profile editing with custom avatar pickers.
 
